@@ -1,0 +1,15 @@
+usage: font [options...] <file>
+
+This program saves the specified font resource as a .fnt file.
+
+<file> is the name of the font resource file. Required.
+
+
+Options:
+
+-o <path>
+	Sets the output directory for extracted resource components. The
+	default is the current directory.
+
+-?	Prints this screen.
+

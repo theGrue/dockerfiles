@@ -1,0 +1,80 @@
+usage: graphics [options...] <file>
+
+This program works with view, picture, cursor, palette and CLUT resources.
+
+For views it saves all cels as individual .bmp files. For example, the first
+cel of the first loop of the 123.v56 view will be saved as View123-0-0.bmp.
+Keep in mind that some views that do not have an embedded palette will not be
+displayed correctly. Use -pal option to specify the palette to use in this
+case. The output displays the view metadata information in XML format.
+
+For pictures the program saves embedded cels (if any) and displays metadata
+information in XML format. Please note that some of pictures may not have
+embedded cels at all. If you want pictures to be exported exactly as seen be
+sure to use -v (and probably -pal) options.
+
+Cursor images are saved as a 16-color bitmap.
+
+Palettes and CLUT resources are displayed in XML format.
+
+<file> is the name of the resource you want to process (i.e. view.000).
+Required.
+
+
+Options:
+
+-o <path>
+	Sets the output directory for extracted resource components. The
+	default is the current directory.
+
+-l
+	Saves each loop in the view as an animated .gif file. Optional.
+
+-v
+	Saves the "visual" bitmap for picture resources. You may want to
+	specify this option for all picture resources to see the bitmap as it
+	appears on the screen. Optional.
+
+-a <range>
+	Saves the "visual" bitmap for picture resources as an animated .gif
+	file. Use the <range> argument to specify one or more color ranges for
+	palette animation, separated by a comma, i.e. "159-128,191-160".
+	Works with 256-color pictures only. Optional.
+
+-p
+	Saves the "priority" bitmap for picture resources. Optional.
+
+-c
+	Saves the "control" bitmap for picture resources. Optional.
+
+-pal <palette>
+	Specifies the internal palette number for 16-color resources, or
+	a name of the external palette file for 256-color resources. Supported
+	files include *.pal (views/pics) and *.p56 (views only). Optional.
+
+-vg <0|1|11|2|3>
+	Sets the graphics version. The default is unknown, the program will
+	try to detect it automatically.
+
+-vi <x.yyy.zzz>
+	Sets the interpreter version and attempts to set all other at once,
+	although some adjustment may be needed. The version info string may
+	look like '0.000.409', 'T.A00.169', '1.cfs.058', '2.100.002', etc.
+	Usually it makes sense to look at the .exe file first to get the proper
+	value. Case sensitive. Optional.
+
+-vd <0|1>
+	Enables (1) or disables (0) the automatic version detection algorithm.
+	If enabled, the version values above are used as hints only and may
+	change during the processing. The default value is 1.
+
+-rle <0|1>
+	Enables (1) or disables (0) the RLE compression for .bmp files. The
+	default value is 1.
+
+-fps <rate>
+	Sets the frame rate for .gif files, 1-20 frames per second. The
+	default value is 10.
+
+-?	Prints this screen.
+

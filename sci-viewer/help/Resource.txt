@@ -1,0 +1,80 @@
+usage: resource [options...] <file>
+
+This program extracts individual resources from resource archives.
+
+<file> is the name of the archive you want to process (i.e. resource.000).
+Supported types include normal and audio resource packs, as well as chunks.
+You may also specify a drive name (i.e. d:\) to extract AGI volumes or SCI
+CD-Audio resources. In the last case you need to be sure that cdaudio.map
+file is available. Required.
+
+
+Options:
+
+-i <path>
+	Sets the input directory to look for .map files when extracting
+	resources from the .aud/.sfx archives. The default is the current
+	directory.
+
+-o <path>
+	Sets the output directory for extracted resource files. The default is
+	the current directory.
+
+-r <0|1|2>
+	Controls the program behavior when the extracted resource already
+	exists in the output directory. When this parameter is 0, the
+	file will be skipped. 1 means overwrite the existing resource with the
+	new one. When this option is set to 2, a new version of the resource
+	will be created with ;nnn appended to the file name. The default is 0.
+
+-vr <0|1|1L|11|2|21|3>
+	Sets the version of the resource pack. The default is unknown, i.e.
+	the program will try to detect it automatically.
+
+-vn <0|1>
+	Sets the resource naming convention. 0 means 'type.id', i.e.
+	'view.123'. 1 means 'id.typ', i.e. '123.v56'. The default is unknown,
+	the program will try to detect it automatically.
+
+-vb <1|2>
+	Sets the base36 resource naming convention. 1 means '@*.*' for audio36
+	resources and '#*.*' for sync36 resources. 2 means 'a*.*' and 's*.*',
+	respectively. The default is unknown, the program will try to detect it
+	automatically.
+
+-vg <0|1|11|2|3>
+	Sets the graphics version. Needed to properly write the individual
+	resource headers for graphics files (pictures, views, palettes). The
+	default is unknown, program will try to detect it automatically.
+
+-vs <0|1|1|2|3>
+	Sets the script version. Needed to properly write the individual
+	resource headers for script files (scripts, heaps). The default is
+	unknown, program will try to detect it automatically.
+
+-vm <11|1C>
+	Sets the version of map resources. The default is unknown, the program
+	will try to detect it automatically.
+
+-vi <x.yyy.zzz>
+	Sets the interpreter version and attempts to set all other at once,
+	although some adjustment may be needed. The version info string may
+	look like '0.000.409', 'T.A00.169', '1.cfs.058', '2.100.002', etc.
+	AGI versions must be entered in a form of '2.440', '3.002.086', etc.
+	Usually it makes sense to look at the .exe file first to get the proper
+	value. Case sensitive. Optional.
+
+-vd <0|1>
+	Enables (1) or disables (0) the automatic version detection algorithm.
+	If enabled, the version values above are used as hints only and may
+	change during the processing. The default value is 1.
+
+-cda <offset>
+	Specifies the CDAudio track offset relatively to it's position in the
+	TOC, in sectors (75 per second). You may need to adjust it when ripped
+	resources are slightly off their normal position. The default value is
+	-114 and should be correct for the 'Jones in the fast lane' (seems to
+	be the only game with these resources so far).
+
+-?	Prints this screen.
+

@@ -1,0 +1,71 @@
+usage: music [options...] <file>
+
+This program extracts information from sound and patch resources.
+
+For patches it extracts "initialization" and "shutdown" SysEx sequences into
+individual MIDI files.
+
+For sounds the program saves individual tracks as MIDI files. Please note that
+these tracks are not processed and most likely will sound incorrectly during
+playback. Use -p option to save a "processed" version of specified tracks.
+Digital samples (if any) will be saved as a separate .wav files.
+
+<file> is the name of the resource you want to process (i.e. 123.snd).
+Required.
+
+
+Options:
+
+-o <path>
+	Sets the output directory for extracted resource components. The
+	default is the current directory.
+
+-p <track>[-<patch>][,...]
+	Saves the "processed" version of specified tracks in addition to the
+	raw one. Separate multiple tracks with a comma. The patch argument is
+	optional (but highly recommended). For example, if you specify this
+	option as "7-4.pat,12-1.pat,18" the program will save three additional
+	tracks. Track 7 will be processed in according to the rules specified
+	in the patch 4; track 12 using patch 1 and track 18 using internal
+	rules. Optional.
+
+-init
+	Adds an initialization sequence (if any) from the specified patch in
+	the beginning of "processed" tracks. Optional.
+
+-vol <volume>
+	Sets the volume (0-15) for "processed" tracks. This option has an
+	effect only if the specified patch supports it. The default is 12.
+
+-vs <0|1> (SCI)
+-vs <1|2> (AGI)
+	Sets the sound version. The default is unknown, the program will try
+	to detect it automatically.
+
+-vi <x.yyy.zzz>
+	Sets the interpreter version and attempts to set all other at once,
+	although some adjustment may be needed. The version info string may
+	look like '0.000.409', 'T.A00.169', '1.cfs.058', '2.100.002', etc.
+	AGI versions must be entered in a form of '1.0', '2.440', '3.002.086',
+	etc. Usually it makes sense to look at the .exe/.ovl file first to get
+	the proper value. Case sensitive. Optional.
+
+-vd <0|1>
+	Enables (1) or disables (0) the automatic version detection algorithm.
+	If enabled, the version values above are used as hints only and may
+	change during the processing. The default value is 1.
+
+-ds <delay>
+	The delay after each System Exclusive MIDI message, in 1/60s seconds.
+	The default is 8.
+
+-db <delay>
+	The delay at the beginning of "processed" sound tracks just after the
+	initialization sequence, in 1/60s seconds. The default is 15.
+
+-de <delay>
+	The delay at the end of "processed" sound tracks just before the
+	shutdown sequence, in 1/60s seconds. The default is 30.
+
+-?	Prints this screen.
+

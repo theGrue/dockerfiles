@@ -1,0 +1,11 @@
+usage: message [options...] <file>
+
+This program displays the specified message resource in XML format.
+
+<file> is the name of the message resource file. Required.
+
+
+Options:
+
+-?	Prints this screen.
+

@@ -1,0 +1,47 @@
+usage: code [options...] <file>
+
+This program disassembles script, heap and logic resources.
+
+<file> is the name of the resource you want to process (i.e. script.000).
+Required.
+
+
+Options:
+
+-i <path>
+	Sets the input directory to look for necessary files while processing
+	script and heap resources. This usually includes other scripts, heaps,
+	vocabs and sierra.exe file. The default is the current directory.
+
+-o <path>
+	Sets the output directory for extracted resource components. The
+	default is the current directory.
+
+-vs <0|1|2|3> (SCI), or
+-vs <1|22|244|321> (AGI)
+	Sets the script/logic version. The default is unknown, the program will
+	try to detect it automatically.
+
+-vo <1|2|24>
+	Sets the AGI object version. The default is unknown, the program will
+	try to detect it automatically.
+
+-vw <1|2>
+	Sets the AGI words.tok version. The default is unknown, the program will
+	try to detect it automatically.
+
+-vi <x.yyy.zzz>
+	Sets the interpreter version and attempts to set all other at once,
+	although some adjustment may be needed. The version info string may
+	look like '0.000.409', 'T.A00.169', '1.cfs.058', '2.100.002', etc.
+	AGI versions must be entered in a form of '1.0', '2.440', '3.002.086',
+	etc. Usually it makes sense to look at the .exe/.ovl file first to get
+	the proper value. Case sensitive. Optional.
+
+-vd <0|1>
+	Enables (1) or disables (0) the automatic version detection algorithm.
+	If enabled, the version values above are used as hints only and may
+	change during the processing. The default value is 1.
+
+-?	Prints this screen.
+

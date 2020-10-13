@@ -1,0 +1,11 @@
+usage: sync [options...] <file>
+
+This program displays the specified sync resource in XML format.
+
+<file> is the name of the sync resource file. Required.
+
+
+Options:
+
+-?	Prints this screen.
+

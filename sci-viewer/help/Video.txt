@@ -1,0 +1,34 @@
+usage: video [options...] <file>
+
+This program displays information about sequence, robot, VMD and duck resources
+and saves video data as an .avi file.
+
+<file> is the name of the resource you want to process (i.e. 123.rbt).
+Required.
+
+
+Options:
+
+-i <path>
+	Sets the input directory to look for .clu files while processing duck
+	resources in 256-color mode. The default is the current directory.
+
+-o <path>
+	Sets the output directory for extracted resource components. The
+	default is the current directory.
+
+-rle <0|1>
+	Enables (1) or disables (0) the RLE compression for .avi files. The
+	default value is 1.
+
+-fps <rate>
+	Sets the frame rate for resources that lack this information, 1-20
+	frames per second. The default value is 10.
+
+-duck <clut|555|565>
+	Sets the decoding mode for duck resources: 8-bit CLUT (requires an
+	appropriate CLUT resource), 5-5-5 or 5-6-5 high color mode. The
+	default value is 565.
+
+-?	Prints this screen.
+

@@ -1,0 +1,11 @@
+usage: text [options...] <file>
+
+This program displays the specified text resource in XML format.
+
+<file> is the name of the text resource file. Required.
+
+
+Options:
+
+-?	Prints this screen.
+

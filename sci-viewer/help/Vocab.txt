@@ -1,0 +1,31 @@
+usage: vocab [options...] <file>
+
+This program displays the specified vocab resource in XML format.
+
+<file> is the name of the vocab resource file. Required.
+
+
+Options:
+
+-vo <1|2|24>
+	Sets the AGI object version. The default is unknown, the program will
+	try to detect it automatically.
+
+-vw <1|2>
+	Sets the AGI words.tok version. The default is unknown, the program will
+	try to detect it automatically.
+
+-vi <x.yyy.zzz>
+	Sets the interpreter version and attempts to set all other at once,
+	although some adjustment may be needed. AGI versions must be entered
+	in a form of '1.0', '2.440', '3.002.086', etc. Usually it makes sense
+	to look at the .ovl file first to get the proper value. Case
+	sensitive. Optional.
+
+-vd <0|1>
+	Enables (1) or disables (0) the automatic version detection algorithm.
+	If enabled, the version values above are used as hints only and may
+	change during the processing. The default value is 1.
+
+-?	Prints this screen.
+

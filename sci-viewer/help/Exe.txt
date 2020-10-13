@@ -1,0 +1,11 @@
+usage: exe [options...] <file>
+
+This program extracts version information from the interpreter file.
+
+<file> is the SCI executable file name (sci*.exe or sier*.exe). Required.
+
+
+Options:
+
+-?	Prints this screen.
+
