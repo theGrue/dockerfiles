@@ -20,6 +20,9 @@ docker build -t sci-viewer .
 Wine can take some time when it is run the first time, so it can be more efficient to perform batch operations inside the container.
 ```
 docker run -it --rm -v "$(pwd)/:/home/wineuser/output" sci-viewer bash
+...
+cd output
+for f in *.P56 ; do wine ~/Graphics.exe -v $f ; done
 ```
 
 #### Convert P56 file
