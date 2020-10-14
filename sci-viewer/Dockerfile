@@ -8,8 +8,9 @@ RUN set -ex \
     && cd /home/wineuser \
     && wget 'https://sciprogramming.com/esd_scitools/SCI_Viewer_(CLI).zip' \
     && unzip 'SCI_Viewer_(CLI).zip' \
-    && rm -rf 'SCI_Viewer_(CLI).zip' 'SCI Viewer GUI'
+    && mv 'SCI Viewer CLI'/* . \
+    && rm -rf 'SCI_Viewer_(CLI).zip' 'SCI Viewer CLI' 'SCI Viewer GUI'
 
-WORKDIR /home/wineuser/SCI Viewer CLI
+WORKDIR /home/wineuser
 
 CMD [ "ls" ]
