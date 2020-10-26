@@ -10,23 +10,17 @@ Luckily, [there's a Docker image for that](https://hub.docker.com/r/scottyhardy/
 Examples
 --------
 
-#### Build
-
-```
-docker build -t sci-viewer .
-```
-
 #### Bash shell
 Wine can take some time when it is run the first time, so it can be more efficient to perform batch operations inside the container.
 ```
-docker run -it --rm -v "$(pwd)/:/home/wineuser/output" sci-viewer bash
+docker run -it --rm -v "$(pwd)/:/home/wineuser/output" thegrue/sci-viewer bash
 ...
 cd output
-for f in *.P56 ; do wine ~/Graphics.exe -v $f ; done
+for f in *.P56 ; do wine ~/Graphics.exe $f ; done
 ```
 
 #### Convert P56 file
 Note that Windows programs expect backslashes, which must be escaped... with a backslash.
 ```
-docker run -it --rm -v "$(pwd)/:/home/wineuser/output" sci-viewer wine graphics -o output output\\PIC.P56
+docker run -it --rm -v "$(pwd)/:/home/wineuser/output" thegrue/sci-viewer wine graphics -o output output\\PIC.P56
 ```
