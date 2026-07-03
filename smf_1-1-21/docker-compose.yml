@@ -1,0 +1,15 @@
+version: '3'
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: example
+            MYSQL_USER: smfuser
+            MYSQL_PASSWORD: smfpass 
+            MYSQL_DATABASE: smfdb
+    web:
+        build: .
+        ports:
+            - "8000:80"
+        depends_on:
+            - db
